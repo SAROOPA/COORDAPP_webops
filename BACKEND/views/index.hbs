@@ -1,0 +1,181 @@
+
+<section class="insert">
+    <h2 style="font-size: 30px ; "><b> INSERT DATA </b></h2>
+    {{#  if errors}}
+            <section class="success" style="color: red ; font-size: 22px ">
+                <ol style="margin-left: 630px">
+                    {{# each errors}}
+                        <li style="text-align: left">{{this.msg}}</li>
+                    {{/each}}
+                </ol>
+            </section>
+    {{/if}}
+    <form action="/insert" method="post">
+        <div  >
+            <label for="name"> NAME     :</label>
+            <input type="text" id="name" name="name" >
+        </div> <br></br>
+        <div  >
+        <label for="emailId"> EMAIL-ID          :</label>
+        <input type="text" id="emailId" name="emailId">
+    </div>
+        <br></br>
+        <div  >
+            <label for="password"> PASSWORD       :</label>
+            <input type="password" id="password" name="password">
+        </div> <br></br>
+        <div  >
+            <label for="confirmPassword"> CONFIRM  PASSWORD    :</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+        </div> <br></br>
+        <div  >
+            <label for="number"> PHONE NUMBER     :</label>
+            <input type="number" id="number" name="number">
+        </div> <br></br>
+        <div  >
+            <label for="state">STATE    :</label>
+           <select id="state" name="state" type="text">
+
+            <option value="">------------Select State------------</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+            <option value="Daman and Diu">Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Orissa">Orissa</option>
+            <option value="Pondicherry">Pondicherry</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttaranchal">Uttaranchal</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="West Bengal">West Bengal</option>
+           </select>
+
+        </div> <br></br>
+
+        <button type="submit" style="width: 100px ; font-size: 20px ">submit</button>
+    </form>
+</section>
+<br></br> <br></br>
+
+<section class="get">
+    <h2 style="font-size: 30px"><b>GET DATA</b></h2>
+    <a href="/get-data"><h1>LOAD DATA</h1></a>
+    <div>
+        {{# each items}}
+            <article class="item" style="text-align: left; margin-left: 100px;margin-right: 100px; background-color: cornsilk">
+                <div style="font-size: 22px;">  ID       : {{this._id}}</div>
+                <div>  1)NAME      :  {{ this.name }}</div>
+                <div>  2)EMAIL-ID  :  {{ this.emailId}}</div>
+                <div>  3)NUMBER    :  {{ this.number }}</div>
+                <div>  4)STATE     :  {{ this.state }}</div>
+
+                <br></br>
+            </article>
+        {{/each}}
+    </div>
+</section> <br></br> <br></br>
+
+<section class="update">
+    <h2 style="font-size: 30px"><b> UPDATE</b></h2>
+    <form action="/update" method="post">
+        <div >
+            <label for="id"> ID :</label>
+            <input type="text" id="id" name="id">
+        </div> <br></br>
+        <div  >
+            <label for="name"> NAME  :</label>
+            <input type="text" id="name" name="name">
+        </div> <br></br>
+        <div  >
+            <label for="emailId"> EMAILID  :</label>
+            <input type="text" id="emailId" name="emailId">
+        </div> <br></br>
+        <div>
+            <label for="password">PASSWORD   :</label>
+            <input type="password" id="password" name="password">
+        </div> <br></br>
+        <div  >
+            <label for="number">PHONE NUMBER     :</label>
+            <input type="number" id="number" name="number">
+        </div> <br></br>
+        <div  >
+            <label for="state">STATE    :</label>
+            <select id="state" name="state" type="text">
+
+                <option value="">------------Select State------------</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Orissa">Orissa</option>
+                <option value="Pondicherry">Pondicherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttaranchal">Uttaranchal</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+
+        </div> <br></br>
+        <button type="submit" style="width: 100px ; font-size: 20px ">update</button>
+    </form>
+</section> <br></br> <br></br>
+
+<section class="delete">
+    <h2 style="font-size: 30px"><b>DELETE</b></h2>
+     <form action="/delete" method="post">
+        <div >
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div> <br></br>
+        <button type="submit" style="width: 100px ; font-size: 20px ">delete</button>
+    </form>
+</section>

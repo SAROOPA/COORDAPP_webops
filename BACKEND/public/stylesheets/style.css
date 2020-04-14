@@ -1,0 +1,35 @@
+body{
+  font-family:Serif ;
+  text-align: center;
+  margin-left: 500px;
+  margin-right: 500px;
+
+}
+label{
+  width: 180px;
+  display: inline-block;
+  text-align: right;
+
+}
+.insert {
+  background-color: lavender;
+}
+
+.get{
+  background-color:lightpink ;
+
+
+}
+.get label{
+  text-align: start;
+  width: 300px;
+}
+.update {
+  background-color:lightgreen ;
+
+
+}
+.delete{
+  background-color: lightskyblue;
+
+}
