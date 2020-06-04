@@ -25,7 +25,7 @@ const Login = (props) => {
       confirmpassword: yup
         .string()
         .oneOf([yup.ref("password"), null], "invalid password"),
-      number: yup.number().min(10, "invalid number").max(10, "invalid number"),
+      number: yup.string().length(10),
     }),
 
     onSubmit: (userData) => {
@@ -53,7 +53,7 @@ const Login = (props) => {
               required
             />{" "}
             <label>EMAIL ID:</label>
-            <inputs
+            <input
               className="form-control"
               type="text"
               name="email"
