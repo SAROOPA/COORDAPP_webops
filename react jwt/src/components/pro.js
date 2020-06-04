@@ -12,7 +12,7 @@ const Pro = ({ component, ...rest }) => {
       {...rest}
       render={(props) => {
         return hasToken !== null ? (
-          <RenderComponents component={props} />
+          <RenderComponents component={...props} />
         ) : (
           <Redirect
             to={{

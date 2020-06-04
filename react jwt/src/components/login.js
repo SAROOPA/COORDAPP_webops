@@ -24,7 +24,7 @@ const Reg = (props) => {
       axios
         .post("http://localhost:5000/form/log", userData)
         .then((res) => {
-          localStorage.setItem("auth", JSON.stringify(res.userData.token));
+          localStorage.setItem("auth", JSON.stringify(res.data.token));
           props.history.push("/home");
         })
         .catch((err) => console.log(err));

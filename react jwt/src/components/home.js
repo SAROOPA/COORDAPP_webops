@@ -9,7 +9,7 @@ const Home = (props) => {
     Axios.get("http://localhost:5000/form/getdata", {
       headers: { auth: `${JSON.parse(localStorage.getItem("auth"))}` },
     })
-      .then((response) => setJson(response.event))
+      .then((response) => setJson(response.data))
       .catch((err) => console.log(err));
   }, []);
 
