@@ -12,6 +12,7 @@ const Routes = express.Router();
 
 Routes.post("/reg", async (req, res) => {
   try {
+    //encrypting password
     var encPwd = "";
 
     bcrypt.hash(req.password, 10, function (err, hash) {
@@ -53,15 +54,21 @@ Routes.post("/log", async (req, res) => {
       }
     );
 
+    //checking if email exist
+
     if (!checkData) {
       res.status(400).json("email doesnt exist");
     }
+
+    //comparing password
 
     bcrypt.compare(req.body.password, checkData.password).then((isTrue) => {
       if (!isTrue) {
         return res.status(400).json("invalid password");
       }
     });
+
+    //creating token
 
     jwt.sign(
       { email: checkData.email },
@@ -85,6 +92,7 @@ const verifyData = (req, res, next) => {
   req.token = token;
   next();
 };
+
 Routes.get("/getdata", verifyData, async (req, res) => {
   jwt.verify(req.token, "1234", async (err, data) => {
     if (err) {

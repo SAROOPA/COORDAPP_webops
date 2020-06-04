@@ -1,8 +1,12 @@
 import React from "react";
+
 import { Route, Redirect } from "react-router-dom";
+
 const Pro = ({ component, ...rest }) => {
   let hasToken = JSON.parse(localStorage.getItem("auth"));
+
   var RenderComponents = component;
+
   return (
     <Route
       {...rest}
