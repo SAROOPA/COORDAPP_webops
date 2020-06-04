@@ -18,7 +18,7 @@ const Reg = (props) => {
       axios
         .post("http://localhost:5000/form/log", userData)
         .then((response) => props.history.push("/home"))
-        .catch((err) => console.log("data not added"));
+        .catch((err) => console.log(err));
     },
   });
 
@@ -37,8 +37,8 @@ const Reg = (props) => {
             value={formik.values.email}
             required
           />
-          {formik.err.email ? (
-            <div className="text-danger">{formik.err.email}</div>
+          {formik.errors.email ? (
+            <div className="text-danger">{formik.errors.email}</div>
           ) : null}
           <label>PASSWORD:</label>
           <input
@@ -49,21 +49,22 @@ const Reg = (props) => {
             value={formik.values.password}
             required
           />
-          {formik.err.password ? (
-            <div className="text-danger">{formik.err.password}</div>
+          {formik.errors.password ? (
+            <div className="text-danger">{formik.errors.password}</div>
           ) : null}
         </div>
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-        <a
+        <button
+          className="btn btn-primary"
           href="#"
           onClick={() => {
-            window.location.href = "regform";
+            window.location.href = "/regform";
           }}
         >
           SIGNUP
-        </a>
+        </button>
       </form>
     </div>
   );

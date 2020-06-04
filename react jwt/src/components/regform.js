@@ -25,7 +25,7 @@ const Login = (props) => {
       axios
         .post("http://localhost:5000/form/reg", userData)
         .then(() => props.history.push("/login"))
-        .catch((err) => console.log("data not added"));
+        .catch((err) => console.log(err));
     },
   });
 
@@ -95,7 +95,6 @@ const Login = (props) => {
           <label>STATE:</label>
           <select
             className="form-control"
-            id="self"
             name="state"
             onChange={formik.handleChange}
             value={formik.values.state}
@@ -146,14 +145,14 @@ const Login = (props) => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-        <a
-          href="#"
+        <button
+          className="btn btn-primary"
           onClick={() => {
-            window.location.href = "regform";
+            window.location.href = "/login";
           }}
         >
-          SIGNUP
-        </a>
+          LOGIN
+        </button>
       </form>
     </div>
   );
