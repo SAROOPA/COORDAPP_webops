@@ -23,7 +23,10 @@ const Reg = (props) => {
     onSubmit: (userData) => {
       axios
         .post("http://localhost:5000/form/log", userData)
-        .then((response) => props.history.push("/home"))
+        .then((res) => {
+          localStorage.setItem("auth", JSON.stringify(res.userData.token));
+          props.history.push("/home");
+        })
         .catch((err) => console.log(err));
     },
   });
@@ -60,19 +63,17 @@ const Reg = (props) => {
               <div className="text-danger">{formik.errors.password}</div>
             ) : null}
           </div>
-          <button type="submit" className="btn btn-primary m-4">
-            Submit
-          </button>
-          <button
-            className="btn btn-primary m-4"
-            href="#"
-            onClick={() => {
-              window.location.href = "/regform";
-            }}
-          >
-            SIGNUP
-          </button>
+          <button className="btn btn-primary m-4">Submit</button>
         </form>
+        <button
+          className="btn btn-primary m-4"
+          href="#"
+          onClick={() => {
+            window.location.href = "/regform";
+          }}
+        >
+          SIGNUP
+        </button>
       </div>
     </div>
   );

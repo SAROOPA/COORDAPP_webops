@@ -31,7 +31,9 @@ const Login = (props) => {
     onSubmit: (userData) => {
       axios
         .post("http://localhost:5000/form/reg", userData)
-        .then(() => props.history.push("/login"))
+        .then((res) => {
+          props.history.push("/login");
+        })
         .catch((err) => console.log(err));
     },
   });
@@ -151,19 +153,16 @@ const Login = (props) => {
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary -4">
-            SUBMIT
-          </button>
-
-          <button
-            className="btn btn-primary m-4"
-            onClick={() => {
-              window.location.href = "/login";
-            }}
-          >
-            LOGIN
-          </button>
+          <button className="btn btn-primary -4">SUBMIT</button>
         </form>
+        <button
+          className="btn btn-primary m-4"
+          onClick={() => {
+            window.location.href = "/login";
+          }}
+        >
+          LOGIN
+        </button>
       </div>
     </div>
   );
